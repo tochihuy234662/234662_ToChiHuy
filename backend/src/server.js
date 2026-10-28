@@ -6,6 +6,14 @@ const bookRoutes = require('./routes/bookRoutes');
 
 const app = express();
 
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    message: 'Backend API is healthy',
+    timestamp: new Date().toISOString()
+  });
+});
+
 app.use(cors());
 app.use(express.json());
 
